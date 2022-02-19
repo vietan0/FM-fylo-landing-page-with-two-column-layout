@@ -17,6 +17,7 @@ html {
 	--dark-blue: hsl(243, 87%, 12%);
 	--text-blue: hsl(243, 27%, 32%);
 	--grey-blue: hsl(238, 22%, 44%);
+	--text-hover: hsl(224, 100%, 66%);
 	--accent-blue: hsl(224, 93%, 58%);
 	--accent-cyan: hsl(170, 45%, 43%);
 	--grey-95: hsl(240, 75%, 98%);
@@ -43,6 +44,7 @@ textarea,
 button {
 	font-family: inherit;
 	font-size: inherit;
+	line-height: inherit;
 }
 
 h1,
@@ -95,9 +97,14 @@ a:link {
 	color: inherit;
 }
 
-a:focus {
-	outline: solid var(--accent-blue);
+a:focus-visible {
+	outline: dotted var(--grey-blue);
 	outline-offset: 8px;
+}
+
+a:hover,
+a:focus {
+	color: var(--text-hover);
 }
 
 address {
@@ -150,7 +157,8 @@ button {
 }
 
 button:hover {
-	background-color: hsl(224, 81%, 46%);
+	background-color: var(--text-hover);
+	cursor: pointer;
 }
 
 /* Top level sections */
@@ -244,13 +252,30 @@ nav > ul {
 }
 
 #hero input {
+	width: 100%;
+	/* outline instead of border to prevent 1px imbalance */
+	outline: 1px solid rgb(255, 163, 163);
+	border: none;
+	background-color: rgb(255, 234, 234);
+}
+
+#hero .input-container {
 	flex-basis: 50%;
+}
+
+#hero .input-container::after {
+	content: attr(data-error);
+	color: rgb(211, 16, 16);
+	font-size: 0.875rem;
 }
 
 #hero button {
 	flex-basis: 140px;
+	/* prevent button height to match sibling flex-item */
+	align-self: flex-start;
 }
 
+.input-container,
 input,
 button {
 	flex-grow: 1;
@@ -283,6 +308,11 @@ a.green-link::after {
 	position: relative;
 	/* nudge down tiny bit */
 	top: 3px;
+}
+
+a.green-link:hover {
+	filter: brightness(120%);
+	opacity: 0.7;
 }
 
 .testimonial {
@@ -397,22 +427,26 @@ address img {
 	justify-content: center;
 }
 
-#social-medias > * {
+#social-medias a {
 	padding: 0.5rem;
 	border-radius: 50%;
 	height: min-content;
 	outline: 1px solid white;
+	
+	/* fix weird extra height */
+	display: inline-block;
 }
 
-/* fix weird extra height */
+#social-medias a:hover {
+	outline-color: var(--text-hover);
+}
+
+#social-medias a:hover path{
+	fill: var(--text-hover);
+}
+
 #social-medias li {
 	line-height: 0;
-}
-
-#social-medias img {
-	/* use min to prevent shrinking */
-	/* could also use flex-basis */
-	min-width: 16px;
 }
 
 /* Footer END */
@@ -452,12 +486,12 @@ address img {
 	}
 
 	h2 {
-		font-size: 2.25rem;
+		font-size: 2.5rem;
 		letter-spacing: -0.5px;
 	}
 
 	#hero h2 {
-		font-size: 2.25rem;
+		font-size: 2.5rem;
 	}
 
 	.section-content {
