@@ -52,7 +52,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
-[The problem of nested \<img\> inside \<a\>](https://developpaper.com/question/the-problem-of-a-nested-img-tag/)
+- [The problem of nested \<img\> inside \<a\>](https://developpaper.com/question/the-problem-of-a-nested-img-tag/)
 
 ```css
 /* fix weird height problem */
@@ -60,12 +60,18 @@ a {
 	display: inline-block;
 	line-height: 0px;
 }
+```
 
-/* make flex-grow equals 1 and make flex-basis 0,
-effectively makes all columns equal width (until squished) */
+- Flex-grow equals 1 makes item fill container
+```css
 flex-item {
-	flex: 1;
+	flex-grow: 1;
 }
+```
+
+- [Specify width & height attributes to prevent layout shift](https://www.youtube.com/watch?v=4-d_SoCHeWE)
+```html
+<img src="icon.svg" alt="" width="100" height="100"> 
 ```
 
 ### Continued development

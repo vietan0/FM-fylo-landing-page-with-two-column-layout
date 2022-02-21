@@ -275,6 +275,7 @@ nav > ul {
 	align-self: flex-start;
 }
 
+/* Fill container */
 .input-container,
 input,
 button {
@@ -441,6 +442,7 @@ address img {
 	outline-color: var(--text-hover);
 }
 
+/* svg color change */
 #social-medias a:hover path{
 	fill: var(--text-hover);
 }
@@ -509,7 +511,7 @@ address img {
 
 	#stay-productive {
 		background-image: url(images/bg-curve-desktop.svg);
-		background-size: 700%;
+		background-size: 620%;
 	}
 
 	#early-access form {
