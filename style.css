@@ -140,12 +140,17 @@ button {
 	border-radius: 4px;
 }
 
-form {
-	height: min-content;
+input[type="email"] {
+	width: 100%;
+	border: none;
+	/* outline instead of border to prevent 1px imbalance */
+	outline: 1px solid var(--grey-75);
+
 }
 
-input[type="email"] {
-	border: 1px solid var(--grey-75);
+input[type="email"]:focus,
+input[type="email"]:focus-visible {
+	outline: solid var(--accent-blue);
 }
 
 button {
@@ -251,22 +256,8 @@ nav > ul {
 	gap: 1rem;
 }
 
-#hero input {
-	width: 100%;
-	/* outline instead of border to prevent 1px imbalance */
-	outline: 1px solid rgb(255, 163, 163);
-	border: none;
-	background-color: rgb(255, 234, 234);
-}
-
 #hero .input-container {
 	flex-basis: 50%;
-}
-
-#hero .input-container::after {
-	content: attr(data-error);
-	color: rgb(211, 16, 16);
-	font-size: 0.875rem;
 }
 
 #hero button {
