@@ -50,15 +50,15 @@ Users should be able to:
 ```css
 /* fix weird height problem */
 a {
-	display: inline-block;
-	line-height: 0px;
+    display: inline-block;
+    line-height: 0px;
 }
 ```
 
 - Flex-grow equals 1 makes item fill container
 ```css
 flex-item {
-	flex-grow: 1;
+    flex-grow: 1;
 }
 ```
 
